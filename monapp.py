@@ -6,10 +6,10 @@ import datetime
 def connexiondb():
         try:
                 con = psy.connect(
-                        host="localhost",
-                        database="flaskhtml",
-                        user="postgres",
-                        password="Diop1957+",
+                        host="ec2-54-235-92-244.compute-1.amazonaws.com",
+                        database="dafou8j1079e8s",
+                        user="pgzjuspcpktsxz",
+                        password="d955645e2c878bca231ea21bf354e795978142c4eb8165922da9011c059ff1f3",
                         port=5432
                         )
                 return con
