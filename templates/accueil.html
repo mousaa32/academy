@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>SonatelAcademy</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        {% block head%}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/formulaire.css')}}">
+        {% endblock head%}
+        <link rel="shortcut icon" href="{{url_for('static',filename='sonatel.gif')}}">
+    </head>
+<body>
+        <div class="container">
+                <!-- <link class="modal-content card card-image" style="background-image: url_for('static',filename='imgbackgrjpg')"> -->
+
+                <div class="container">
+                        <div class="row">
+
+                            <div class="well text-center"  style="background-color:  rgb(155, 154, 152)" id="tete">
+                                <style>
+                                    #tete{
+                                        height: 130px;
+                                        width: 1140px;
+                                    }
+                                </style>
+                            
+                                    <h1><b style="color: aliceblue">bienvenue à la sonatel academy coding for better life</b></h1>
+                           
+                            </div>
+                            <img src="{{url_for('static',filename='sonatel.gif')}}" id="logo1" class="pull-left">
+                            <div class="pull-left">
+                                    <label  class="pull-left" id="admin">{{email_admin}}</label>
+                                     <img src="{{url_for('static',filename='USER2-512.png')}}" id="logo2" >
+                             </div>
+
+                        </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                            <div class="col">
+
+                                <div class="container" id="menu-vertical">
+                                        <ul>
+                                            <li class="menu"><a href="{{url_for('accueil')}}"></a><h4> <b>accueil</b></h4></li>
+                                            <li><h4><b>scolarite</b></h4>
+                                                <details><summary id="details"><i>cliquer ici</i> </summary>
+                                                    <ul>
+                                                        <li><a href="{{url_for('inscription')}}"><b>inscription</b> </a></li>
+                                                        <li><a href="{{url_for('modifier')}}"><b>modifier</b> </a></li>
+                                                        <li><a href="{{url_for('listinscritannul')}}"><b>annuler</b></a></li>
+                                                        <li><a href="{{url_for('listinscritsuspendre')}}"><strong>suspendre</strong> </a></li>
+                                                    </ul>
+                                                </details>
+                                            </li>
+                                            <li> <h4><b> promo</b></h4>
+                                                <details><summary id="details"><i>cliquer ici</i> </summary>
+                                                    <ul>
+                                                        <li><a href="{{url_for('nouveaupromo')}}"><b>nouveau</b> </a></li>
+                                                        <li><a href="{{url_for('modipromo')}}"><b>modifier</b></a></li>
+                                                        <li><a href="{{url_for('listepromo')}}"><b>lister</b></a></li>
+                                                    </ul>
+                                                </details>
+                                            </li>
+                                            <li><h4><b> referentiel</b></h4>
+                                                <details><summary id="details"><i>cliquer ici</i> </summary>
+                                                    <ul>
+                                                        <li><a href="{{url_for('nouveauref')}}"><b>nouveau</b></a></li>
+                                                        <li><a href="{{url_for('modifieref')}}"><b>modifier</b></a></li>
+                                                        <li><a href="{{url_for('listeref')}}"><b>lister</b></a></li>
+                                                    </ul>
+                                                </details>
+                                            </li>
+                                           <h4 id="deco"><a href="{{url_for('logout')}}">Deconnection</a></h4>
+                                           <style>
+                                           #deco{
+
+                                               background-color: rgb(61, 58, 58);
+                                               margin-top: -1px;
+                                           }
+                                           </style>
+                                        </ul>
+                                    </div>
+                            </div>
+                    </div>
+
+                </div>
+                {% block body%}{% endblock body%}
+                <div class="container" id="foo">
+
+                    <div class="row">
+                        <div class="well" style="background-color: rgb(155, 154, 152)">
+                            <h3>
+                                    <b>
+                                <span style="color: aliceblue">Retrouvez-nous sur nos pages</span>
+                                    <a href="https://twitter.com/GroupeSonatel" target="_blank" class="twitter"> twitter</a>
+                                    <a href="https://www.facebook.com/SonatelAcademy" class="facebook" target="_blank">facebook</a>
+                                    <span class="pull-right" style="color: aliceblue"> copyright &copy;2019 Tous droits réservés </span>
+                                </b>
+                                </h3>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </body>
+    {% block footer %}
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+   <script type="text/javascript">
+   $(document).ready(function() {
+       $('#signInForm').bootstrapValidator();
+   });
+   </script>
+
+    {% endblock %}
+</html>

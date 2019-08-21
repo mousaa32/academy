@@ -1,0 +1,56 @@
+div{
+  width: 550px;
+  margin: 0 auto;
+  border: 3px solid rgb(177, 106, 48);
+  border-radius: 8px;
+  background-color: rgb(245, 247, 248);
+}
+
+form{
+  width: 450px;
+  margin: 0 auto;
+  color: blue;
+}
+h1 {
+  text-align: center;
+}
+input 
+{
+	border: 2px solid #999;
+	
+	border-radius: 3px;
+	
+	-webkit-appearance: none;
+
+	text-align: center;
+}
+
+button, input, select, textarea {
+
+  font-family : inherit;
+  
+  font-size   : 100%;
+}
+
+input, textarea, select, button {
+  width : 150px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
+     -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
+          box-sizing: border-box;
+}
+
+fieldset{
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 3px solid;
+  box-shadow: 10px 5px 5px rgb(14, 13, 13) ;
+}
+.reset{
+  color: rgb(223, 30, 4);
+}
+.submit{
+  color: green;
+}

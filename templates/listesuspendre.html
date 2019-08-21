@@ -1,0 +1,118 @@
+{% extends "accueil.html" %}
+{% block head%}{% endblock head%}
+{% block body%}
+<div id="listref">
+        <h2>
+                <button class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodal">
+                   <a href="/suspendre"><b>liste des inscrits</b></a>
+                </button>
+            </h2>
+        <style type="text/css">
+            #listref{
+                    position: relative;
+                    margin: 136px;
+                    margin-left: 170px;
+                    width: 950px;
+
+            }
+        </style>
+
+    <table class="table">
+        <h2><b>Liste des inscrits suspendus </b></h2>
+            <tr class="danger">
+                <th >id_app</th>
+                <th>matricule</th>
+                <th>prenom</th>
+                <th>nom</th>
+                <th>email</th>
+                <th>statut</th>
+                <th>datnais</th>
+                <th>numero_tel</th>
+                <th>nom_promo</th>
+                <th>action</th>
+
+            </tr>
+
+        {% for row in suspendre%}
+
+            <tr class="info">
+                <td >{{row.0}}</td>
+                <td >{{row.1}}</td>
+                <td >{{row.2}}</td>
+                <td >{{row.3}}</td>
+                <td >{{row.4}}</td>
+                <td >{{row.5}}</td>
+                <td >{{row.6}}</td>
+                <td >{{row.7}}</td>
+                <td >{{row.8}}</td>
+                <td>
+                    <a href="/suspendre/listsuspendus/réinscrire{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">réinscrire</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+    </table>
+</div>
+{% for row in suspendre%}
+<div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title"><b>réinscription</b></h2>
+                    </div>
+                <div class="modal-body">
+                    <form action="{{url_for('reinscrire')}}" method="POST">
+                            <div class="form-group">
+                                    <!-- <label for="">prenom :</label> -->
+                                    <input type="hidden" name="id_app" value="{{row.0}}">
+                                    <input type="hidden" name="matricule" value="{{row.1}}">
+                                    <input type="hidden" class="form-control" name="prenom" value="{{row.2}}">
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label for="">nom:</label> -->
+                                <input type="hidden" class="form-control" name="nom" value="{{row.3}}">
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- <label for="">email:</label> -->
+                                    <input type="hidden" class="form-control" name="email" value="{{row.4}}">
+                            </div>
+                            <div class="form-group">
+                                    <label for="statut">statut</label><br>
+                                    <select name="statut" type="text" class="form-control" value="{{row.5}}">
+                                        <option value="inscrit">inscrit</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <!-- <label for="">datnais:</label> -->
+                                    <input type="hidden" class="form-control" name="datnais"  value="{{row.6}}">
+                            </div>
+                            <div class="form-group">
+                                    <!-- <label for="">numero_tel:</label> -->
+                                    <input type="hidden" class="form-control" name="numero"  value="{{row.7}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="referentiel">promo</label>
+                                <select name="idpromo">
+                                    {% for row in promo %}
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        <div class="form-group">
+                                <button class="btn btn-primary" type="submit"><b>réinscrire</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+{% endblock body%}

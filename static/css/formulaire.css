@@ -1,0 +1,66 @@
+.container{
+
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-top: -1px;
+
+
+}
+form{
+  margin-top: 0px;
+  height: 510px;
+  margin-left:134px;
+  width: 989px;
+  color: rgb(31, 30, 51);
+  /* background-color:  rgb(236, 233, 230); */
+  margin-top:-40px;
+
+}
+h1 {
+  margin-left: 70px;
+}
+input
+{
+  color: rgb(5, 0, 0);
+	border: 2px solid rgb(108, 96, 122);
+
+	border-radius: 3px;
+
+	-webkit-appearance: none;
+
+	text-align: center;
+}
+
+button, input, select, textarea {
+
+  font-family : inherit;
+
+  font-size   : 100%;
+}
+
+input, textarea, select, button {
+  width : 150px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* Pour les anciennes versions des navigateurs WebKit */
+     -moz-box-sizing: border-box; /* Pour tous les navigateurs Gecko */
+          box-sizing: border-box;
+}
+
+/* fieldset{
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 3px solid;
+  box-shadow: 10px 5px 5px rgb(52, 51, 107) ;
+} */
+.reset{
+  margin-top: 2px;
+  margin-left: 155px;
+  color: rgb(124, 22, 22);
+}
+ 
+/* .modal-ku {
+  width: 750px;
+  margin: auto;
+} */

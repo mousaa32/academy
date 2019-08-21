@@ -1,0 +1,35 @@
+{% extends "accueil.html" %}
+{% block body%} 
+<div id="listref">
+    <style type="text/css">
+        #listref{
+                 
+                 margin: 108px;
+                margin-left: 350px;
+                width: 450px;
+                
+        }
+    </style>
+    <table class="table">
+        
+            <thead >
+            
+                <tr class="danger">
+                    <th >identifiant</th>
+                    <th>nom_ref</th>
+                </tr>
+            </thead>
+                {% for row in referentiel%}
+            <tbody>
+                <tr class="info">                           
+                    <td >{{row.0}}</td>
+                    <td >{{row.1}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>  
+        
+    
+    </table>
+</div> 
+ 
+{% endblock body%} 

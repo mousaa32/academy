@@ -1,0 +1,56 @@
+{% extends "accueil.html" %}
+{% block body%} 
+<div id="listref">
+        <h2>
+            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodal">
+                <a href="/suspendre/listsuspendus">liste des suspendus</a> 
+            </button>
+            </h2>
+        <style type="text/css">
+            #listref{
+                    position: relative;
+                    margin: 136px;
+                    margin-left: 170px;
+                    width: 950px;
+                    
+            }
+        </style>
+    <table class="table">  
+            <h2><b>Liste des inscrits</b></h2>        
+            <tr class="danger">
+                <th >id_app</th>
+                <th>matricule</th>
+                <th>prenom</th>
+                <th>nom</th>
+                <th>email</th>
+                <th>statut</th>
+                <th>datnais</th>
+                <th>numero_tel</th>
+                <th>nom_promo</th>
+                <th>action</th>
+            </tr>
+        
+        {% for row in suspendre %}
+        
+            <tr class="info">                           
+                <td >{{row.0}}</td>
+                <td >{{row.1}}</td>
+                <td >{{row.2}}</td>
+                <td >{{row.3}}</td>
+                <td >{{row.4}}</td>
+                <td >{{row.5}}</td>
+                <td >{{row.6}}</td>
+                <td >{{row.7}}</td>
+                <td >{{row.8}}</td>
+                <td>
+                    <a href="/suspendre/{{row.0}}" class="btn btn-danger btn-xs"  onclick="return confirm('voulez vous vraiment suspendre l inscription')"> suspendre</a>  
+                </td>  
+
+            </tr>
+            {% endfor %}
+        
+    </table>
+</div> 
+
+
+{% endblock body%} 

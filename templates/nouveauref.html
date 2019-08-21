@@ -1,0 +1,66 @@
+
+{% extends "accueil.html" %}
+{% block body%}
+
+
+        <div id="listref">
+                <style type="text/css">
+                    #listref{
+                            margin: 18px;
+                            margin-left: 15px;
+                            width: 450px;
+                            height: 398px;
+
+                    }
+                </style>
+
+                       
+        <form id="signInForm" class="form-horizontal"
+data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+data-bv-feedbackicons-validating="glyphicon glyphicon-refresh" action=" " method="POST" >
+{%with messages= get_flashed_messages() %}
+{%if messages%}
+{%for message in messages%}
+<!-- pour permettre d'afficher le mesage et cliquer sur 'x' pour quitter -->
+<div class="alert alert-success alert dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+        {{message}}
+ </div>
+ {%endfor%}
+ {%endif%}
+ {%endwith%}
+
+                    <h1> <b><em>Ajouter un référentiel</em> </b></h1>
+
+
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">nom_ref:</label>
+                    <div class="col-sm-4">
+                   <input type="text" name="nom_ref" class="form-control" required placeholder="Ex :dataArtisan" pattern=".*\S.*"/>
+                 </div>
+                </div>
+                <br>
+                    <!-- bouton -->
+                    <div class="form-group">
+                       <div class="col-sm-8">
+                       <input class="reset" type="reset" value="Effacer" />
+                       <button class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodal">
+                             valider
+                        </button>
+                        <!-- <input class="submit" type="submit" value="Valider" /> -->
+                      </div>
+                     </div>
+                       <!-- <input class="submit" type="submit" value="Valider" /> -->
+                       
+
+
+
+        </form>
+        
+</div>
+ 
+
+{% endblock body%}

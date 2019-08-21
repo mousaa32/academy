@@ -1,0 +1,42 @@
+{% extends "admin.html" %}
+{% block body%}
+<h2><b>Liste des users annulés </b></h2>
+<h2>
+    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodal">
+       <a href="{{url_for('listuser')}}"><b>liste des users</b></a> 
+    </button>
+</h2>
+
+
+<table class="table table-striped">
+    <!-- pour les noms des colones -->
+    <tr>
+        <th>identifiant</th>
+        <th>prenom</th>
+        <th>nom</th>
+        <th>email</th>
+        <th>password</th>
+        <th>etat</th>
+        <th>photo</th>
+        <th>action</th>
+    </tr>
+
+    {% for row in  annuler %}
+
+    <tr>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
+        <td>{{row.2}}</td>
+        <td>{{row.3}}</td>
+        <td>{{row.4}}</td>
+        <td>{{row.5}}</td>
+        <td>{{row.6}}</td>
+        <td>
+             <a href="/réactiver/{{row.0}}" class="btn btn-warning btn-xs"  onclick="return confirm('voulez vous réactiver l utilisateur')"><b>réactiver</b></a>
+        </td>
+    </tr>
+    <!-- fin de la boucle -->
+    {% endfor %}
+</table>
+
+{% endblock body%}

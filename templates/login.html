@@ -1,0 +1,68 @@
+{% extends "admin.html" %}
+{% block body%}
+    <div class="container">
+        <div class="login-bix">
+        <div class="row">
+
+            <div class="col-md-6">
+
+
+                    <h2><b>LOGIN</b></h2>
+                    <form action="{{url_for('registre')}}" method="POST">
+                        <div class="form-group">
+                            <label for="">nom d'utilisateur</label>
+                            <input type="email" class="form-control" name="email" required placeholder="Ex : exemple@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="">mot de passe</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit"> connecter</button>
+                        </div>
+                        {%with messages= get_flashed_messages() %}
+                        {%if messages%}
+                        {%for message in messages%}
+
+                        <div class="alert alert-danger alert dismissable" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                    <span aria-hidden="true">x</span>
+                                </button>
+                                {{message}}
+                         </div>
+                         {%endfor%}
+                           {%endif%}
+                           {%endwith%}
+                    </form>
+
+                </div>
+
+        </div>
+
+
+
+    </div>
+
+    </div>
+</div>
+{% endblock body%}
+{% block footer %}
+<div class="row" id="footerlo">
+  <style media="screen">
+    #footerlo{
+      margin-top:130px;
+      margin-left: 15px;
+      margin-right:15px;
+    }
+  </style>
+  <div class="well" style="background-color: rgb(155, 154, 152)">
+          <h3>
+             <b style="color: aliceblue">Retrouvez-nous sur nos pages</b>
+              <a href="https://twitter.com/GroupeSonatel" target="_blank" class="twitter"> twitter</a>
+              <a href="https://www.facebook.com/SonatelAcademy" class="facebook" target="_blank">facebook</a>
+              <span class="pull-right" style="color: aliceblue">copyright &copy;2019 Tous droits réservés </span>
+          </h3>
+  </div>
+</div>
+
+{% endblock footer%}

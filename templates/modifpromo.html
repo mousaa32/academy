@@ -1,0 +1,112 @@
+{% extends "accueil.html" %}
+{% block head%}{% endblock head%}
+{% block body%} 
+<div id="listref">
+        <style type="text/css">
+            #listref{
+                    position: relative;
+                    margin: 76px;
+                    margin-left: 152px;
+                    width: 750px;
+                    
+            }
+        </style>
+         {%with messages= get_flashed_messages() %}
+         {%if messages%}  
+         {%for message in messages%}
+          
+         <div class="alert alert-success alert dismissable" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                     <span aria-hidden="true">x</span>
+                 </button>
+                 {{message}}
+          </div>  
+          {%endfor%}
+            {%endif%}
+            {%endwith%} 
+    <table class="table">         
+            <tr class="danger">
+                <th >identifiant</th>
+                <th>nom_promo</th>
+                <th>date_debut</th>
+                <th>date_fin</th>
+                <th>nom_referentiel</th>
+                <th>action</th>
+            </tr>
+        
+        {% for row in promo%}
+        
+            <tr class="info">                           
+                <td >{{row.0}}</td>
+                <td >{{row.1}}</td>
+                <td >{{row.2}}</td>
+                <td >{{row.3}}</td>
+                <td >{{row.4}}</td>
+                <td>
+                    <!-- pour charger les boutons 'modifier'-->
+                    <a href="/modipromo/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">modifier</a>
+                    <!-- <a href="/delete/{{row.0}}" class="btn btn-danger btn-xs"  onclick="return confirm('voulez vous supprimmer')">supprimer</a>   -->
+                    
+                </td>
+                <!-- <input class="submit" type="submit" value="Valider" /> -->
+                    
+            </tr>
+            {% endfor %}
+        
+    </table>
+</div>  
+
+{% for row in promo %}
+
+
+<div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title"><b>modifier donnee</b> </h3>
+
+                </div>
+            <div class="modal-body">
+            
+                <form action="{{url_for('modipromo')}}" method="POST"> 
+                    <div class="form-group">
+                        <label for="">nom_promo:</label>
+                        <input type="hidden" name="id_promo" value="{{row.0}}">
+                        <input type="text" class="form-control" name="nom_promo" value="{{row.1}}">
+                    </div>
+                    <div class="form-group">
+                                            <label for="">date_debut:</label>
+                                            <input type="text" class="form-control" name="date_debut" value="{{row.2}}">
+                                    </div>
+    
+                                    <div class="form-group">
+                                            <label for="">date_fin:</label>
+                                            <input type="text" class="form-control" name="date_fin" value="{{row.3}}">
+                                    </div>
+    
+                                    <div class="form-group">
+                                            <label for="referentiel">nom referentiel</label> 
+                                            <select  name="id_ref">
+                                                    <label for="date">referentiel</label>
+                                                    {% for row in ref%}
+                                                   <option  value="{{ row[0]}}" >{{row[1]}}</option>
+                                                   {% endfor %}
+                                               </select>
+                                    </div>
+                    <div class="form-group">
+                            <button class="btn btn-primary" type="submit">update donnee</button>  
+                      </div>
+                </form>
+            </div>   
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+            </div>
+        </div>    
+    </div>
+
+</div> 
+
+{% endfor %}
+
+{% endblock body%} 

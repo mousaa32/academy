@@ -1,0 +1,43 @@
+{% extends "accueil.html" %}
+{% block body%}
+<div id="listref">
+        <style type="text/css">
+            #listref{
+                    position: relative;
+                    margin: 136px;
+                    margin-left: 170px;
+                    width: 950px;
+
+            }
+        </style>
+
+    <table class="table">
+        <h2><b>Liste des promos </b></h2>
+            <tr class="danger">
+                <th >id_app</th>
+                <th>nom_promo</th>
+                <th>date_debut</th>
+                <th>date_fin</th>
+
+                <th>action</th>
+
+            </tr>
+
+        {% for row in promo %}
+
+            <tr class="info">
+                <td >{{row.0}}</td>
+                <td >{{row.1}}</td>
+                <td >{{row.2}}</td>
+                <td >{{row.3}}</td>
+
+                <td>
+                    <a href="/listerp/{{row.0}}" class="btn btn-warning btn-xs"><b>lister</b></a>
+                </td>
+            </tr>
+            {% endfor %}
+
+    </table>
+</div>
+
+{% endblock body%}
