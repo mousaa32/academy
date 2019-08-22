@@ -211,14 +211,14 @@ def inscription():
 
                 for mat in resultat :
                     i =mat[0]
-                date_actu=datetime.datetime.today().strftime("%m/%Y/")
+                date_actu=datetime.datetime.today().strftime("%d-%m-%Y-")
 
                 if i == None:
                     m = 1
-                    matricule="SA-2019"+str(date_actu)+str(m)
+                    matricule="SA-"+str(date_actu)+str(m)
                 else :
                     m = i+1
-                    matricule = "SA-2019"+str(date_actu)+str(m)
+                    matricule = "SA-"+str(date_actu)+str(m)
 
                 ####pour verifier  si l'email ou le numero telephone  de l'apprenant existe deja
                 control_promo=False
