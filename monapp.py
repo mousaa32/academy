@@ -42,7 +42,7 @@ def registre():
     if request.method == "POST":
         session['psdw']=request.form['password']
         session['email']=request.form['email']
-        cur.execute("SELECT email,password FROM utilisateur where email='" + session['email'] + "'and password='" + session['psdw'] + "'")
+        cur.execute("SELECT email,password FROM utilisateur where email='" + session['email'] + "'and password='" + session['psdw'] + "' and etat ='actif' ")
         data =cur.fetchall()
         con.commit()
         for row in data:
