@@ -237,7 +237,7 @@ def inscription():
                     con .commit()
 
                     flash("apprenant ajouté avec succé")
-                    return  render_template('inscription.html',pro=data,l=app_ver)
+                    return  render_template('inscription.html',pro=data,l=app_ver,matricule=matricule)
             return  render_template('inscription.html',pro=data,l=app_ver,email_admin=email_session,matricule=matricule)
         return redirect(url_for('login'))
 
