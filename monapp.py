@@ -41,7 +41,7 @@ def registre():
 
     if request.method == "POST":
         session['psdw']=request.form['password']
-        session['email']=request.form['email']
+        session['email']=request.form['email'].lower()
         cur.execute("SELECT email,password FROM utilisateur where email='" + session['email'] + "'and password='" + session['psdw'] + "' and etat ='actif' ")
         data =cur.fetchall()
         con.commit()
@@ -97,11 +97,11 @@ def insertuser():
 
         if request.method == "POST":
             # id_user=request.form['id_user']
-            prenom=request.form['prenom']
-            nom=request.form['nom']
-            email=request.form['email']
+            prenom=request.form['prenom'].lower()
+            nom=request.form['nom'].lower()
+            email=request.form['email'].lower()
             password=request.form['password']
-            etat=request.form['etat']
+            etat=request.form['etat'].lower()
             image=request.form['image']
 
             ####pour verifier  si l'email ou le numero telephone  de l'utilisateur existe deja
@@ -197,7 +197,7 @@ def inscription():
                 # matricule=request.form['matricule']
                 prenom=request.form['prenom'].strip()
                 nom=request.form['nom'].strip()
-                email=request.form['email']
+                email=request.form['email'].lower()
                 statut=request.form['statut']
                 dateNaissance=request.form['date']
                 telephone=request.form['numero']
@@ -264,7 +264,7 @@ def modifier():
                 matricule = details['matricule']
                 prenom = details['prenom']
                 nom = details['nom']
-                email = details['email']
+                email = details['email'].lower()
                 telephone = details['numero']
                 statut=details['statut']
                 dateNaissance=details['datnais']
